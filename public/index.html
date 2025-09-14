@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2e7d32" />
+    <meta name="description" content="Anonymous Charity Platform - Privacy-preserving charitable donations with blockchain technology" />
+    <title>Anonymous Charity Platform - Privacy-Preserving Donations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #2e7d32 0%, #66bb6a 50%, #ff9800 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            margin-bottom: 40px;
+            padding: 20px 40px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #2e7d32, #66bb6a);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #2e7d32, #66bb6a);
+            color: white;
+            box-shadow: 0 3px 5px 2px rgba(46, 125, 50, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #1b5e20, #2e7d32);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .hero {
+            text-align: center;
+            margin: 80px 0;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #e3f2fd);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 60px 0;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 8px;
+        }
+        
+        .stat-change {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 60px 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+        }
+        
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .feature-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .cta {
+            text-align: center;
+            margin: 100px 0 60px;
+        }
+        
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #fff, #e3f2fd);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+        }
+        
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .donation-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-top: 32px;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .project-category {
+            background: rgba(46, 125, 50, 0.3);
+            color: #66bb6a;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #2e7d32, #66bb6a);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            border-left: 4px solid #2e7d32;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            max-width: 400px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .notification.error {
+            border-left-color: #f44336;
+        }
+        
+        .blockchain-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .wallet-button {
+            background: linear-gradient(45deg, #2e7d32, #66bb6a);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .wallet-button.connected {
+            background: linear-gradient(45deg, #4caf50, #8bc34a);
+            cursor: default;
+        }
+        
+        .wallet-button:hover:not(.connected) {
+            background: linear-gradient(45deg, #1b5e20, #2e7d32);
+            transform: translateY(-2px);
+        }
+        
+        .message-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #2e7d32;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.25rem;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 16px;
+                padding: 20px;
+            }
+            
+            .nav-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="notification" class="notification"></div>
+    
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-icon">❤️</div>
+                Anonymous Charity Platform
+            </div>
+            <div class="nav-buttons">
+                <a href="#" class="btn btn-outline">Home</a>
+                <a href="#donate" class="btn btn-outline">Donate</a>
+                <button id="connectBtn" class="wallet-button">Connect Wallet</button>
+            </div>
+        </nav>
+        
+        <div class="blockchain-info">
+            <p><strong>🌐 LIVE ON SEPOLIA TESTNET</strong></p>
+            <p>Real blockchain deployment for anonymous charity donations!</p>
+            <p>Contract: <span style="font-family: monospace; background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px;">0x151b...750b</span></p>
+        </div>
+        
+        <!-- Status Message -->
+        <div id="messageBox" class="message-box" style="display: none;">
+            <p id="statusMessage">Connect your wallet to start making donations!</p>
+        </div>
+        
+        <section class="hero">
+            <h1>Anonymous Charity Platform</h1>
+            <p>Making a Difference Through Anonymous Giving<br>
+            Secure, Private, and Transparent Charitable Donations</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#donate" class="btn btn-primary">❤️ Start Donating</a>
+                <a href="#projects" class="btn btn-outline">🤝 View Projects</a>
+            </div>
+        </section>
+        
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">$2.8M</div>
+                <div class="stat-label">Total Donated</div>
+                <div class="stat-change">+34%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">89</div>
+                <div class="stat-label">Active Projects</div>
+                <div class="stat-change">+15%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">1.2K</div>
+                <div class="stat-label">Anonymous Donors</div>
+                <div class="stat-change">+28%</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">12K</div>
+                <div class="stat-label">Lives Impacted</div>
+                <div class="stat-change">+42%</div>
+            </div>
+        </section>
+        
+        <section style="text-align: center; margin: 60px 0 40px;">
+            <h2 style="font-size: 2.5rem; font-weight: 700; background: linear-gradient(45deg, #fff, #e3f2fd); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px;">
+                Why Choose Our Platform?
+            </h2>
+        </section>
+        
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🤝</div>
+                    <div class="feature-title">Anonymous Donations</div>
+                </div>
+                <div class="feature-description">Make charitable donations with complete privacy protection</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">👁️</div>
+                    <div class="feature-title">Transparent Projects</div>
+                </div>
+                <div class="feature-description">View verified charity projects with full transparency</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title">Secure Transactions</div>
+                </div>
+                <div class="feature-description">All donations secured by blockchain technology</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-icon">🌍</div>
+                    <div class="feature-title">Global Impact</div>
+                </div>
+                <div class="feature-description">Support causes worldwide with instant donations</div>
+            </div>
+        </section>
+        
+        <section id="projects" class="donation-section" style="display: none;">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 16px;">All Charity Projects</h2>
+            <p style="text-align: center; color: rgba(255, 255, 255, 0.8); margin-bottom: 32px;">Browse and support all verified charity projects</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Clean Water for Villages</h3>
+                        <span class="project-category">Community Development</span>
+                    </div>
+                    <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">Providing clean drinking water access to remote villages in Africa</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Progress</span>
+                            <span>18.5 / 25 ETH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 74%;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 16px 0;">
+                        <span>👥</span>
+                        <span class="donor-count">34 donors</span>
+                    </div>
+                    <button class="btn btn-primary donate-btn" data-project="water" style="width: 100%;">❤️ Donate Anonymously</button>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Education for Children</h3>
+                        <span class="project-category">Education</span>
+                    </div>
+                    <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">Supporting educational programs and school supplies for children in need</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Progress</span>
+                            <span>8.2 / 15 ETH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 16px 0;">
+                        <span>👥</span>
+                        <span class="donor-count">19 donors</span>
+                    </div>
+                    <button class="btn btn-primary donate-btn" data-project="education" style="width: 100%;">❤️ Donate Anonymously</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Medical Aid for Refugees</h3>
+                        <span class="project-category">Healthcare</span>
+                    </div>
+                    <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">Emergency medical supplies and care for displaced families</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Progress</span>
+                            <span>12.8 / 20 ETH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 64%;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 16px 0;">
+                        <span>👥</span>
+                        <span class="donor-count">28 donors</span>
+                    </div>
+                    <button class="btn btn-primary donate-btn" data-project="medical" style="width: 100%;">❤️ Donate Anonymously</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Food Security Program</h3>
+                        <span class="project-category">Nutrition</span>
+                    </div>
+                    <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">Combating hunger through sustainable food distribution programs</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Progress</span>
+                            <span>5.3 / 12 ETH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 44%;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 16px 0;">
+                        <span>👥</span>
+                        <span class="donor-count">16 donors</span>
+                    </div>
+                    <button class="btn btn-primary donate-btn" data-project="food" style="width: 100%;">❤️ Donate Anonymously</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Disaster Relief Fund</h3>
+                        <span class="project-category">Emergency</span>
+                    </div>
+                    <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">Rapid response funding for natural disaster victims</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Progress</span>
+                            <span>22.1 / 30 ETH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 74%;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 16px 0;">
+                        <span>👥</span>
+                        <span class="donor-count">42 donors</span>
+                    </div>
+                    <button class="btn btn-primary donate-btn" data-project="disaster" style="width: 100%;">❤️ Donate Anonymously</button>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Environmental Protection</h3>
+                        <span class="project-category">Environment</span>
+                    </div>
+                    <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">Forest conservation and wildlife protection initiatives</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Progress</span>
+                            <span>14.7 / 18 ETH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 16px 0;">
+                        <span>👥</span>
+                        <span class="donor-count">31 donors</span>
+                    </div>
+                    <button class="btn btn-primary donate-btn" data-project="environment" style="width: 100%;">❤️ Donate Anonymously</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="donate" class="donation-section">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 16px;">Featured Projects</h2>
+            <p style="text-align: center; color: rgba(255, 255, 255, 0.8); margin-bottom: 32px;">Support our most urgent charity projects with anonymous donations</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Clean Water for Villages</h3>
+                        <span class="project-category">Community Development</span>
+                    </div>
+                    <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">Providing clean drinking water access to remote villages</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Progress</span>
+                            <span>18.5 / 25 ETH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 74%;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 16px 0;">
+                        <span>👥</span>
+                        <span class="donor-count">34 donors</span>
+                    </div>
+                    <button class="btn btn-primary donate-btn" data-project="water" style="width: 100%;">❤️ Donate Anonymously</button>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Education for Children</h3>
+                        <span class="project-category">Education</span>
+                    </div>
+                    <p style="margin-bottom: 16px; color: rgba(255, 255, 255, 0.8);">Supporting educational programs for children in need</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>Progress</span>
+                            <span>8.2 / 15 ETH</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; margin: 16px 0;">
+                        <span>👥</span>
+                        <span class="donor-count">19 donors</span>
+                    </div>
+                    <button class="btn btn-primary donate-btn" data-project="education" style="width: 100%;">❤️ Donate Anonymously</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Join thousands of donors making anonymous, secure charitable donations worldwide.</p>
+            <button id="ctaBtn" class="btn btn-primary" style="font-size: 1.2rem; padding: 16px 48px;">🔒 Get Started Now</button>
+        </section>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script>
+        // Contract Configuration for Sepolia
+        const CONTRACT_ADDRESS = "0x151b0Ee72BAe89956e66d28eD9772c9f0D42750b";
+        const CONTRACT_ABI = [
+            "function makeDonation(uint256 _projectId, bool _isAnonymous) external payable",
+            "function createProject(string memory _name, string memory _description, string memory _category, uint256 _targetAmount, address payable _beneficiary) external",
+            "function getProject(uint256 _projectId) external view returns (tuple(uint256 id, string name, string description, string category, uint256 targetAmount, uint256 raisedAmount, address beneficiary, bool isActive, uint256 createdAt))",
+            "function nextProjectId() external view returns (uint256)",
+            "function totalProjects() external view returns (uint256)",
+            "event DonationMade(uint256 indexed projectId, uint256 amount, uint256 timestamp)",
+            "event AnonymousDonationMade(uint256 indexed projectId, uint256 amount, uint256 timestamp)"
+        ];
+
+        // State variables - exactly like the working reference
+        let account = '';
+        let contract = null;
+        let loading = false;
+        let message = 'Connect wallet to start making donations on Sepolia!';
+        
+        // DOM elements
+        const connectBtn = document.getElementById('connectBtn');
+        const ctaBtn = document.getElementById('ctaBtn');
+        const messageBox = document.getElementById('messageBox');
+        const statusMessage = document.getElementById('statusMessage');
+        const notification = document.getElementById('notification');
+        const donateButtons = document.querySelectorAll('.donate-btn');
+
+        // Show notification function
+        function showNotification(text, isError = false) {
+            notification.textContent = text;
+            notification.className = `notification show ${isError ? 'error' : ''}`;
+            setTimeout(() => {
+                notification.className = 'notification';
+            }, 4000);
+        }
+
+        // Update message function
+        function setMessage(msg) {
+            message = msg;
+            statusMessage.textContent = msg;
+            messageBox.style.display = 'block';
+            showNotification(msg, msg.includes('❌') || msg.includes('Failed'));
+        }
+
+        // Real wallet connection - using exact pattern from working reference
+        const connectWallet = async () => {
+            try {
+                if (!window.ethereum) {
+                    setMessage('Please install MetaMask! ❌');
+                    return;
+                }
+
+                loading = true;
+                setMessage('Connecting to MetaMask...');
+                connectBtn.textContent = 'Connecting...';
+
+                const accounts = await window.ethereum.request({
+                    method: 'eth_requestAccounts'
+                });
+
+                // Sepolia network check - exactly like reference
+                const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                if (chainId !== '0xaa36a7') { // Sepolia chain ID
+                    try {
+                        await window.ethereum.request({
+                            method: 'wallet_switchEthereumChain',
+                            params: [{ chainId: '0xaa36a7' }],
+                        });
+                    } catch (switchError) {
+                        if (switchError.code === 4902) {
+                            await window.ethereum.request({
+                                method: 'wallet_addEthereumChain',
+                                params: [{
+                                    chainId: '0xaa36a7',
+                                    chainName: 'Sepolia Test Network',
+                                    rpcUrls: ['https://sepolia.infura.io/v3/'],
+                                    nativeCurrency: {
+                                        name: 'ETH',
+                                        symbol: 'ETH',
+                                        decimals: 18
+                                    },
+                                    blockExplorerUrls: ['https://sepolia.etherscan.io/']
+                                }]
+                            });
+                        }
+                    }
+                }
+
+                // Setup with ethers - exactly like reference using Web3Provider pattern
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = await provider.getSigner();
+                contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+
+                account = accounts[0];
+                setMessage('Connected to Sepolia! ✅');
+                
+                // Update UI
+                connectBtn.textContent = account.slice(0, 6) + '...' + account.slice(-4);
+                connectBtn.className = 'wallet-button connected';
+                ctaBtn.textContent = '✅ Wallet Connected';
+                ctaBtn.style.background = 'linear-gradient(45deg, #4caf50, #8bc34a)';
+                
+                // Initialize projects if needed
+                await initializeProjects();
+                
+            } catch (error) {
+                console.error('Wallet connection failed:', error);
+                setMessage('Wallet connection failed ❌');
+            } finally {
+                loading = false;
+                if (!account) {
+                    connectBtn.textContent = 'Connect Wallet';
+                }
+            }
+        };
+
+        // Initialize projects if they don't exist
+        const initializeProjects = async () => {
+            if (!contract) return;
+            
+            try {
+                const totalProjects = await contract.totalProjects();
+                console.log('Total projects:', totalProjects.toString());
+                
+                if (totalProjects.toNumber() === 0) {
+                    setMessage('Initializing projects on blockchain...');
+                    
+                    // Create the first few projects
+                    const projects = [
+                        {
+                            name: "Clean Water for Villages",
+                            description: "Providing clean drinking water access to remote villages",
+                            category: "Community Development",
+                            target: ethers.utils.parseEther("25")
+                        },
+                        {
+                            name: "Education for Children", 
+                            description: "Supporting educational programs for children in need",
+                            category: "Education",
+                            target: ethers.utils.parseEther("15")
+                        }
+                    ];
+                    
+                    for (let project of projects) {
+                        try {
+                            const tx = await contract.createProject(
+                                project.name,
+                                project.description,
+                                project.category,
+                                project.target,
+                                account // Use current account as beneficiary
+                            );
+                            await tx.wait();
+                        } catch (error) {
+                            console.error('Failed to create project:', project.name, error);
+                        }
+                    }
+                    
+                    setMessage('Projects initialized successfully! ✅');
+                }
+            } catch (error) {
+                console.error('Failed to check projects:', error);
+            }
+        };
+
+        // Real donation function with blockchain transaction
+        const submitDonation = async (projectName) => {
+            if (!contract || !account) {
+                setMessage('Please connect wallet first!');
+                return;
+            }
+
+            const amount = prompt('Enter donation amount in ETH (e.g., 0.001):');
+            if (!amount || parseFloat(amount) <= 0) {
+                setMessage('Please enter a valid donation amount ❌');
+                return;
+            }
+
+            const projectMap = {
+                'water': 1,
+                'education': 2,
+                'medical': 3,
+                'food': 4,
+                'disaster': 5,
+                'environment': 6
+            };
+            const projectId = projectMap[projectName] || 1;
+            const isAnonymous = confirm(`Make this donation anonymous?\n\nProject: ${projectName}\nAmount: ${amount} ETH\n\nClick OK for anonymous donation\nClick Cancel for public donation`);
+
+            try {
+                loading = true;
+                setMessage('Submitting donation to blockchain...');
+                
+                const tx = await contract.makeDonation(projectId, isAnonymous, {
+                    value: ethers.utils.parseEther(amount),
+                    gasLimit: 200000
+                });
+                
+                setMessage('Transaction sent! Waiting for confirmation...');
+                
+                await tx.wait();
+                
+                setMessage(`Donation ${amount} ETH submitted successfully! ✅`);
+                
+                // Update UI - increment donor count
+                const projectCards = document.querySelectorAll('.project-card');
+                projectCards.forEach(card => {
+                    if (card.textContent.toLowerCase().includes(projectName.toLowerCase())) {
+                        const donorCountElement = card.querySelector('.donor-count');
+                        if (donorCountElement) {
+                            const currentCount = parseInt(donorCountElement.textContent);
+                            donorCountElement.textContent = `${currentCount + 1} donors`;
+                        }
+                    }
+                });
+
+                console.log('Donation transaction:', {
+                    hash: tx.hash,
+                    project: projectName,
+                    amount: amount,
+                    anonymous: isAnonymous
+                });
+                
+            } catch (error) {
+                console.error('Donation failed:', error);
+                let errorMsg = 'Failed to submit donation ❌';
+                if (error.code === 4001) {
+                    errorMsg = 'Transaction cancelled by user';
+                } else if (error.message && error.message.includes('insufficient funds')) {
+                    errorMsg = 'Insufficient ETH balance ❌';
+                } else if (error.code === 'CALL_EXCEPTION') {
+                    errorMsg = 'Contract execution failed. Project may not exist or be inactive ❌';
+                } else if (error.message && error.message.includes('Project is not active')) {
+                    errorMsg = 'Project is not active. Please try a different project ❌';
+                }
+                setMessage(errorMsg);
+            } finally {
+                loading = false;
+            }
+        };
+
+        // Event listeners
+        connectBtn.addEventListener('click', connectWallet);
+        ctaBtn.addEventListener('click', async () => {
+            if (!account) {
+                await connectWallet();
+            }
+        });
+
+        // Add donation event listeners  
+        function addDonationListeners() {
+            const donateButtons = document.querySelectorAll('.donate-btn');
+            donateButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const projectName = e.target.getAttribute('data-project');
+                    submitDonation(projectName);
+                });
+            });
+        }
+        
+        // Initial donation listeners
+        addDonationListeners();
+
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            document.getElementById('projects').style.display = 'none';
+            document.getElementById('donate').style.display = 'none';
+            
+            // Show requested section
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+                section.scrollIntoView({ behavior: 'smooth' });
+                
+                // Re-add donation listeners for newly shown content
+                addDonationListeners();
+            }
+        }
+
+        // Navigation event listeners
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                
+                if (targetId === 'projects') {
+                    showSection('projects');
+                    setMessage('Viewing all charity projects 📋');
+                } else if (targetId === 'donate') {
+                    showSection('donate');
+                    setMessage('Viewing featured charity projects ⭐');
+                } else {
+                    // For other links, use normal smooth scroll
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Auto-connect if previously connected
+        window.addEventListener('load', async () => {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                    if (accounts.length > 0) {
+                        await connectWallet();
+                    }
+                } catch (error) {
+                    console.log('Auto-connect failed:', error);
+                }
+            }
+            
+            // Show initial message
+            setMessage(message);
+        });
+
+        // Listen for account and network changes
+        if (typeof window.ethereum !== 'undefined') {
+            window.ethereum.on('accountsChanged', (accounts) => {
+                if (accounts.length === 0) {
+                    // Wallet disconnected
+                    account = '';
+                    contract = null;
+                    connectBtn.textContent = 'Connect Wallet';
+                    connectBtn.className = 'wallet-button';
+                    ctaBtn.textContent = '🔒 Get Started Now';
+                    ctaBtn.style.background = 'linear-gradient(45deg, #2e7d32, #66bb6a)';
+                    setMessage('Wallet disconnected ❌');
+                } else {
+                    // Account changed
+                    account = accounts[0];
+                    connectBtn.textContent = account.slice(0, 6) + '...' + account.slice(-4);
+                    setMessage(`Switched to account: ${account.slice(0, 6)}...${account.slice(-4)}`);
+                }
+            });
+
+            window.ethereum.on('chainChanged', (chainId) => {
+                if (chainId !== '0xaa36a7') {
+                    setMessage('Please switch to Sepolia testnet ❌');
+                } else {
+                    setMessage('Connected to Sepolia testnet ✅');
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

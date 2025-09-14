@@ -1,0 +1,20 @@
+{
+  "name": "anonymous-charity-platform",
+  "version": "1.0.0",
+  "description": "Anonymous Charity Platform - Privacy-preserving charitable donations with blockchain technology",
+  "scripts": {
+    "build": "echo 'Build completed - files already in public directory'",
+    "start": "echo 'Visit https://your-site.vercel.app'"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum", 
+    "charity",
+    "donation",
+    "privacy",
+    "anonymous",
+    "philanthropy"
+  ],
+  "author": "Anonymous Charity Platform Team",
+  "license": "UNLICENSED"
+}
